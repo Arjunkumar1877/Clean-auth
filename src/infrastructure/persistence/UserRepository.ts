@@ -10,9 +10,8 @@ export class UserRepository implements IUserRepository{
         return newUser.toObject() as User;    
     }
 
-    findUserByUserName(username: string): Promise<User> {
-        const user = await UserModel.findOne({username: username}).lean();
-
-        return user ? user as User : null;
+     async findUserByUsername(username: string): Promise<User | null> {
+        const user = await UserModel.findOne({ username }).lean();
+        return user ? user as any  : null;
     }
 }

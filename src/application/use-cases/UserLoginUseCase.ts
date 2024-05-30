@@ -5,7 +5,7 @@ export class UserLoginUseCase{
     constructor(private userRepository: IUserRepository){};
 
     async execute(username: string, password: string): Promise<boolean>{
-        const user = await this.userRepository.findUserByUserName(username);
+        const user = await this.userRepository.findUserByUsername(username);
 
         if(!user){
             return false

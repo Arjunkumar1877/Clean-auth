@@ -11,8 +11,8 @@ export class UserSignUpUseCase{
         const user = new User(
             new Date().toISOString(),
             userDto.username,
-            userDto.email,
-            userDto.password
+            hashPassword,
+            userDto.email
         )
 
         return this.userRepository.createUser(user)
